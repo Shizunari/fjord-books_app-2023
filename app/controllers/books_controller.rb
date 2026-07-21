@@ -53,6 +53,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to books_url, notice: t('flash.books.destroy.notice') }
+      format.json { head :no_content }
     end
   end
 
