@@ -1,14 +1,32 @@
 en:
-  "index page title": "Books"
-  "Show this book": "Show this book"
-  "Editing book": "Editing book"
-  "Edit this book": "Edit this book"
-  "Back to books": "Back to books"
-  "New book": "New book"
-  "Destroy this book": "Destroy this book"
+  books:
+    index:
+      html_title: "Books"
+      link_show: "Show this book"
+      new_book: "New book"
+    new:
+      html_title: "New book"
+      link_index: "Back to books"
+    show:
+      link_edit: "Edit this book"
+      link_index: "Back to books"
+      delete_book: "Destroy this book"
+    edit:
+      html_title: "Editing book"
+      link_show: "Show this book"
+      link_index: "Back to books"
 
   helpers:
     submit:
       create: "Create %{model}"
       update: "Update %{model}"
       submit: "Save %{model}"
+
+  flash:
+    books:
+      create:
+        notice: "Book was successfully created."
+      update:
+        notice: "Book was successfully updated."
+      destroy:
+        notice: "Book was successfully destroyed."
