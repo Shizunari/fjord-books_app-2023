@@ -81,3 +81,5 @@ group :test do
 end
 
 gem 'carrierwave'
+gem 'concurrent-ruby', '1.3.4'
+gem 'kaminari'
