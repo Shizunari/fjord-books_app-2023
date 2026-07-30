@@ -1,5 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
+<div>
+  <% if I18n.locale == :ja %>
+    <%= link_to "Switch language to English", url_for(locale: :en) %>
+  <% else %>
+    <%= link_to "言語を日本語に変更", url_for(locale: :ja) %>
+  <% end %>
+</div>
+
 <h1><%= t ".html_title" %></h1>
 
 <div id="books" class="index-items">
