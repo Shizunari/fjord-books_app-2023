@@ -22,4 +22,3 @@ module BooksApp
     config.i18n.available_locales = [:ja, :en]
   end
 end
-

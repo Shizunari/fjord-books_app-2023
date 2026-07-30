@@ -1,10 +1,10 @@
 en:
   activerecord:
     models:
-      book: "book"
+      book: "Book"
     attributes:
       book:
-        title: "title"
-        memo:	"memo"
-        author: "author"
-        picture: "picture"
+        title: "Title"
+        memo:	"Memo"
+        author: "Author"
+        picture: "Picture"

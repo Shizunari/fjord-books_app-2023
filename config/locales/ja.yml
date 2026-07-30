@@ -27,6 +27,6 @@ ja:
       create:
         notice: ”本を登録しました。”
       update:
-        notice: ”本を情報を更新しました。”
+        notice: ”本の情報を更新しました。”
       destroy:
         notice: ”本を削除しました。”
