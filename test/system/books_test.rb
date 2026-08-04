@@ -9,45 +9,44 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'visiting the index' do
     visit books_url
-    assert_selector 'h1', text: I18n.t('.books.index.html_title')
+    assert_selector 'h1', text: '本の一覧'
   end
 
   test 'should create book' do
     visit books_url
-    click_on I18n.t('.books.index.new_book')
+    click_on '新しい本を登録'
 
-    fill_in I18n.t('.activerecord.attributes.book.memo'), with: @book.memo
-    fill_in I18n.t('.activerecord.attributes.book.title'), with: @book.title
-    click_on I18n.t('.helpers.submit.create', model: I18n.t('.activerecord.models.book'))
+    fill_in '本に対するコメント', with: @book.memo
+    fill_in 'タイトル', with: @book.title
+    click_on '本を登録'
 
-    assert_text I18n.t('.flash.books.create.notice')
-    click_on I18n.t('.books.new.link_index')
+    assert_text '本を登録しました。'
+    click_on '一覧ページに戻る'
   end
 
   test 'should update Book' do
     visit book_url(@book)
-    click_on I18n.t('.books.show.link_edit'), match: :first
+    click_on 'この本の情報を編集', match: :first
 
-    fill_in I18n.t('.activerecord.attributes.book.memo'), with: @book.memo
-    fill_in I18n.t('.activerecord.attributes.book.title'), with: @book.title
-    click_on I18n.t('.helpers.submit.update', model: I18n.t('.activerecord.models.book'))
+    fill_in '本に対するコメント', with: @book.memo
+    fill_in 'タイトル', with: @book.title
+    click_on '本の情報を更新'
 
-    assert_text I18n.t('.flash.books.update.notice')
-    click_on I18n.t('.books.new.link_index')
+    assert_text '本の情報を更新しました。'
+    click_on '一覧ページに戻る'
   end
 
   test 'should destroy Book' do
     visit book_url(@book)
-    click_on I18n.t('.books.show.delete_book'), match: :first
+    click_on 'この本の情報を削除', match: :first
 
-    assert_text I18n.t('.flash.books.destroy.notice')
+    assert_text '本を削除しました。'
   end
 
   test 'should switch language' do
     visit books_url
-    click_on I18n.t('.links.language_switch')
+    click_on 'Switch language to English'
 
-    test_locale = I18n.locale == :ja ? :en : :ja
-    assert_selector 'h1', text: I18n.t('.books.index.html_title', locale: test_locale)
+    assert_selector 'h1', text: 'Books'
   end
 end

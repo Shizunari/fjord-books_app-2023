@@ -5,6 +5,6 @@ en:
     attributes:
       book:
         title: "Title"
-        memo:	"Memo"
+        memo: "Memo"
         author: "Author"
         picture: "Picture"

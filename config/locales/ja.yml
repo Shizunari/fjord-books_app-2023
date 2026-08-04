@@ -27,11 +27,11 @@ ja:
   flash:
     books:
       create:
-        notice: ”本を登録しました。”
+        notice: "本を登録しました。"
       update:
-        notice: ”本の情報を更新しました。”
+        notice: "本の情報を更新しました。"
       destroy:
-        notice: ”本を削除しました。”
+        notice: "本を削除しました。"
 
   links:
     language_switch: "Switch language to English"

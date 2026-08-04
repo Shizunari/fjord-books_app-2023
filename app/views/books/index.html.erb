@@ -1,11 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <div>
-  <% if I18n.locale == :ja %>
-    <%= link_to I18n.t(".links.language_switch"), url_for(locale: :en) %>
-  <% else %>
-    <%= link_to I18n.t(".links.language_switch"), url_for(locale: :ja) %>
-  <% end %>
+  <%= link_to I18n.t(".links.language_switch"), url_for(locale: locale_code = I18n.locale == :ja ? :en : :ja) %>
 </div>
 
 <h1><%= t ".html_title" %></h1>
