@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<div>
+  <%= link_to I18n.t(".links.language_switch"), url_for(locale: locale_code = I18n.locale == :ja ? :en : :ja) %>
+</div>
 
-<div id="books">
+<h1><%= t ".html_title" %></h1>
+
+<div id="books" class="index-items">
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+    <div class="index-item">
+      <%= render book %>
+      <p>
+        <%= link_to t(".link_show"), book %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<nav class="page-nav">
+  <%= link_to t(".new_book"), new_book_path %>
+</nav>

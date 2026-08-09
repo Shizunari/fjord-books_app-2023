@@ -9,37 +9,44 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'visiting the index' do
     visit books_url
-    assert_selector 'h1', text: 'Books'
+    assert_selector 'h1', text: '本の一覧'
   end
 
   test 'should create book' do
     visit books_url
-    click_on 'New book'
+    click_on '新しい本を登録'
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Create Book'
+    fill_in '本に対するコメント', with: @book.memo
+    fill_in 'タイトル', with: @book.title
+    click_on '本を登録'
 
-    assert_text 'Book was successfully created'
-    click_on 'Back'
+    assert_text '本を登録しました。'
+    click_on '一覧ページに戻る'
   end
 
   test 'should update Book' do
     visit book_url(@book)
-    click_on 'Edit this book', match: :first
+    click_on 'この本の情報を編集', match: :first
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Update Book'
+    fill_in '本に対するコメント', with: @book.memo
+    fill_in 'タイトル', with: @book.title
+    click_on '本の情報を更新'
 
-    assert_text 'Book was successfully updated'
-    click_on 'Back'
+    assert_text '本の情報を更新しました。'
+    click_on '一覧ページに戻る'
   end
 
   test 'should destroy Book' do
     visit book_url(@book)
-    click_on 'Destroy this book', match: :first
+    click_on 'この本の情報を削除', match: :first
 
-    assert_text 'Book was successfully destroyed'
+    assert_text '本を削除しました。'
+  end
+
+  test 'should switch language' do
+    visit books_url
+    click_on 'Switch language to English'
+
+    assert_selector 'h1', text: 'Books'
   end
 end

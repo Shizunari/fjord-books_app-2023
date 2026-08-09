@@ -1,0 +1,37 @@
+ja:
+  books:
+    index:
+      html_title: "本の一覧"
+      link_show: "この本を表示"
+      new_book: "新しい本を登録"
+    new:
+      html_title: "新しい本を登録"
+      link_index: "一覧ページに戻る"
+    show:
+      link_edit: "この本の情報を編集"
+      link_index: "一覧ページに戻る"
+      delete_book: "この本の情報を削除"
+    edit:
+      html_title: "本を編集中"
+      link_show: "本の詳細ページに戻る"
+      link_index: "一覧ページに戻る"
+    form:
+      error_overview: "%{count}個のエラーにより、本を保存できませんでした。:"
+
+  helpers:
+    submit:
+      create: "%{model}を登録"
+      update: "%{model}の情報を更新"
+      submit: "%{model}を保存"
+
+  flash:
+    books:
+      create:
+        notice: "本を登録しました。"
+      update:
+        notice: "本の情報を更新しました。"
+      destroy:
+        notice: "本を削除しました。"
+
+  links:
+    language_switch: "Switch language to English"
