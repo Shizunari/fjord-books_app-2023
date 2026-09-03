@@ -319,3 +319,9 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
 }
+
+.devise-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
