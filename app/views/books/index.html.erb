@@ -18,3 +18,11 @@
 <nav class="page-nav">
     <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
 </nav>
+
+<nav class="devise-nav">
+    <% if user_signed_in? %>
+      <%= button_to t('views.common.title_index', name: i18n_pluralize(User.model_name.human)), users_path, method: :get %>
+      <%= button_to t('views.common.title_edit', name: t('views.button_name.profile')), edit_user_registration_path, method: :get %>
+      <%= button_to t('views.button_name.sign_out'), destroy_user_session_path, method: :delete %>
+    <% end %>
+</nav>
