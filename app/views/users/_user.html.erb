@@ -24,5 +24,8 @@
     <strong><%= User.human_attribute_name(:self_introduction) %>:</strong>
     <%= user.self_introduction %>
   </p>
-
+  <p>
+    <strong><%= User.human_attribute_name(:avatar) %>:</strong>
+    <%= user_avatar_tag(user) %>
+  </p>
 </div>
