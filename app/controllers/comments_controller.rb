@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to commentable, notice: 'Comment was successfully created.'
+      redirect_to commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
       redirect_to commentable, alert: @comment.errors.full_messages.join(', ')
     end
