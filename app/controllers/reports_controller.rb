@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show]
   before_action :set_my_report, only: %i[edit update destroy]
 
-  # GET /reports or /reports.json
+  # GET /reports
   def index
-    @reports = Report.all
+    @reports = Report.order(:id).page(params[:page]).per(10)
   end
 
-  # GET /reports/1 or /reports/1.json
+  # GET /reports/1
   def show
-    @comments = @report.comments.includes(:user)
-    @comment = Comment.new
+    @report = Report.find(params[:id])
   end
 
   # GET /reports/new
@@ -23,7 +21,7 @@ class ReportsController < ApplicationController
   # GET /reports/1/edit
   def edit; end
 
-  # POST /reports or /reports.json
+  # POST /reports
   def create
     @report = current_user.reports.new(report_params)
 
@@ -34,7 +32,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reports/1 or /reports/1.json
+  # PATCH/PUT /reports/1
   def update
     if @report.update(report_params)
       redirect_to report_url(@report), notice: 'Report was successfully updated.'
@@ -43,18 +41,13 @@ class ReportsController < ApplicationController
     end
   end
 
-  # DELETE /reports/1 or /reports/1.json
+  # DELETE /reports/1
   def destroy
     @report.destroy
     redirect_to reports_url, notice: 'Report was successfully destroyed.'
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_report
-    @report = Report.find(params[:id])
-  end
 
   def set_my_report
     @report = current_user.reports.find(params[:id])
