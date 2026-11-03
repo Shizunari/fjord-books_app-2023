@@ -1,0 +1,21 @@
+<h2><%= Comment.model_name.human.downcase %></h2>
+<div id="comments">
+  <% commentable.comments.includes(:user).order(:id).each do |comment| %>
+    <article class="comment">
+      <span><%= comment.body %> / <%= current_user_name(comment.user) %>（<%= l(comment.created_at, format: :long) %>）</span>
+      <% if current_user.id == comment.user_id %>
+        <%= button_to t('views.comment.destroy'), [commentable, comment], method: :delete %>
+      <% end %>
+    </article>
+  <% end %>
+</div>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <div>
+    <%= form.label :body, t('views.comment.title', name: Comment.model_name.human.downcase), style: "display: block" %>
+    <%= form.text_field :body %>
+  </div>
+  <div>
+    <%= form.submit t('views.comment.create', name: Comment.model_name.human.downcase) %>
+  </div>
+<% end %>
