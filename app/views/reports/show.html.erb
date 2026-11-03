@@ -10,4 +10,4 @@
   <% end %>
 </div>
 
-<%= render 'comments/comments', commentable: @report, comments: @report.comments.includes(:user), new_comment: Comment.new %>
+<%= render 'comments/comments', commentable: @report %>
